@@ -1,0 +1,15 @@
+- name: create a docroot /srv/docroot 
+  file:
+    path: /srv/docroot
+    state: directory
+    mode: '0755'
+
+- name: "copy index.html file"
+  copy: src=files/index.html dest=/srv/docroot/index.html
+
+- name: "copy httpd configuration file"
+  copy: src=files/httpd.original dest=/etc/httpd/conf/httpd.conf
+
+  notify:
+  - restart apache
+

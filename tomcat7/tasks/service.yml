@@ -1,0 +1,2 @@
+- name: Start and Enable tomcat7 service
+  service: name=tomcat7 state=started enabled=yes
