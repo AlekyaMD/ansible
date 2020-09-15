@@ -1,0 +1,16 @@
+---
+- name: Configure Apache for httpd
+  hosts: flipkart-com-apache-node
+  become: yes
+  roles:
+    - apache
+
+- name: Configure Apache for httpd
+  hosts: flipkart-com-apache-node
+  become: yes
+  tasks:
+    - name: copy the flipkart.com code
+      copy:
+        src: /etc/ansible/flipkart/flipkart.html
+        dest: /srv/docroot/flipkart.html
+        owner: root
