@@ -1,0 +1,16 @@
+---
+- name: Configure Apache for httpd
+  hosts: snapdeal-com-apache-node
+  become: yes
+  roles:
+    - apache
+
+- name: Configure Apache for httpd
+  hosts: snapdeal-com-apache-node
+  become: yes
+  tasks:
+    - name: copy the snapdeal.com code
+      copy:
+        src: /etc/ansible/snapdeal/snapdeal.html
+        dest: /srv/docroot/snapdeal.html
+        owner: root
